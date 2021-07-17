@@ -1,3 +1,6 @@
+@import 'variables';
+@import 'media';
+
 * {
   margin: 0;
   padding: 0;
@@ -21,4 +24,4 @@ ol, ul {
   li {
     margin-bottom: 15px;
   }
-} 
+}
