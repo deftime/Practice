@@ -1,5 +1,6 @@
 window.onload = function() {
   openMenu.init();
+  runAOS();
 }
 
 const openMenu = {
@@ -10,4 +11,12 @@ const openMenu = {
       this.menuBtn.parentElement.classList.toggle('open');
     })
   }
+}
+
+function runAOS() {
+  AOS.init({
+    offset: 300,
+    delay: 0,
+    duration: 400
+  })
 }

@@ -26,4 +26,14 @@ ol, ul {
   }
 }
 
+.wrapper {
+  display: flex;
+  min-height: 100vh;
+  overflow-x: hidden;
+  .content {
+    flex-grow: 1;
+  }
+}
+
 @import 'menu';
+@import 'section';

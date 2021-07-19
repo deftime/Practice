@@ -1,0 +1,45 @@
+.center-text {
+  width: 60%;
+  margin: 20px auto 0 auto;
+}
+
+section.first {
+  height: 100vh;
+}
+
+section.two-col {
+  display: flex;
+  padding: 20px 50px;
+  .col {
+    flex: 1;
+    height: 300px;
+    margin-right: 25px;
+    border-radius: 20px;
+  }
+  .left {
+    background-color: tomato;
+  }
+  .right {
+    background-color: pink;
+  }
+}
+
+section.three-col {
+  display: flex;
+  padding: 20px 50px;
+  .col {
+    flex: 1;
+    height: 300px;
+    margin-right: 25px;
+    border-radius: 20px;
+  }
+  .one {
+    background-color: green;
+  }
+  .two {
+    background-color: red;
+  }
+  .three {
+    background-color: blue;
+  }
+}
