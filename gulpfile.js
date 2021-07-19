@@ -20,7 +20,7 @@ function scripts() {
 }
 
 function watcher() {
-  watch('./scss/style.scss', style);
+  watch('./scss/**/*.scss', style);
   watch('./js/**/*.js', scripts);
 }
 
