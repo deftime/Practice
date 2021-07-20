@@ -2,6 +2,7 @@ window.onload = function() {
   openMenu.init();
   activNavList.buildList();
   activNavList.runObserver();
+  progressBar.runObserver();
   runAOS();
 }
 
@@ -39,6 +40,31 @@ const activNavList = {
           a.classList.add('activ');
         } else {
           a.classList.remove('activ');
+        }
+      });
+    }, this.observerOptions);
+
+    this.articles.forEach(item => {
+      observer.observe(item);
+    });
+  }
+}
+
+const progressBar = {
+  articles: document.querySelectorAll('.articles .item'),
+  bar: document.querySelector('.progress'),
+  observerOptions: {
+    threshold: 0.5
+  },
+  runObserver() {
+    let step = Math.floor(100 / this.articles.length);
+    let fill = 0;
+    let observer = new IntersectionObserver((entires, observer)=>{
+      entires.forEach(entry => {
+        if (entry.isIntersecting) {
+          console.log(entry.target);
+          entry.boundingClientRect.top >= 0 ? fill += step : fill -= step;
+          this.bar.style.width = `${fill}%`;
         }
       });
     }, this.observerOptions);

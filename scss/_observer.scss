@@ -41,4 +41,13 @@
       }
     }
   }
+  .progress {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    height: 20px;
+    background-color: #000;
+    transition: 0.3s;
+    z-index: 100;
+  }
 }
