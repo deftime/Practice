@@ -1,5 +1,7 @@
 window.onload = function() {
   openMenu.init();
+  activNavList.buildList();
+  activNavList.runObserver();
   runAOS();
 }
 
@@ -10,6 +12,40 @@ const openMenu = {
       this.menuBtn.classList.toggle('active');
       this.menuBtn.parentElement.classList.toggle('open');
     })
+  }
+}
+
+const activNavList = {
+  articles: document.querySelectorAll('.articles .item'),
+  listBox: document.querySelector('.nav-list'),
+  observerOptions: {
+    threshold: 0.5
+  },
+  buildList() {
+    this.articles.forEach((item, index) => {
+      item.id = `sec-${index}`;
+      let a = document.createElement('a');
+      a.setAttribute('href', `#${item.id}`);
+      a.innerText = item.querySelector('.title').innerText;
+      this.listBox.append(a);
+    });
+  },
+  runObserver() {
+    let observer = new IntersectionObserver((entires, observer)=>{
+      entires.forEach(entry => {
+        let title = entry.target.querySelector('.title');
+        let a = this.listBox.querySelector(`a[href='#${title.parentNode.id}']`);
+        if (entry.isIntersecting) {
+          a.classList.add('activ');
+        } else {
+          a.classList.remove('activ');
+        }
+      });
+    }, this.observerOptions);
+
+    this.articles.forEach(item => {
+      observer.observe(item);
+    });
   }
 }
 

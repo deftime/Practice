@@ -1,7 +1,10 @@
 .menu {
+  position: fixed;
   background-color: #fbeffe;
   width: 50px;
+  height: 100vh;
   transition: 1s;
+  z-index: 1;
   .btn {
     position: relative;
     display: block;
