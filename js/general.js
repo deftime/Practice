@@ -2,7 +2,7 @@ window.onload = function() {
   openMenu.init();
   activNavList.buildList();
   activNavList.runObserver();
-  progressBar.runObserver();
+  progressBar.runByHeight();
   runAOS();
 };
 
@@ -53,6 +53,8 @@ const activNavList = {
 const progressBar = {
   articles: document.querySelectorAll('.articles .item'),
   bar: document.querySelector('.progress'),
+  pageHeight: document.body.scrollHeight,
+  winHeight: window.innerHeight,
   observerOptions: {
     threshold: 0.5
   },
@@ -71,6 +73,12 @@ const progressBar = {
     this.articles.forEach(item => {
       observer.observe(item);
     });
+  },
+  runByHeight() {
+    this.bar.style.transition = 'unset';
+    window.addEventListener('scroll', ()=>{
+      this.bar.style.width = (pageYOffset * 100 / (this.pageHeight - this.winHeight)) + '%';
+    })
   }
 };
 
