@@ -4,7 +4,7 @@ window.onload = function() {
   activNavList.runObserver();
   progressBar.runObserver();
   runAOS();
-}
+};
 
 const openMenu = {
   menuBtn: document.querySelector('.menu .btn'),
@@ -14,7 +14,7 @@ const openMenu = {
       this.menuBtn.parentElement.classList.toggle('open');
     })
   }
-}
+};
 
 const activNavList = {
   articles: document.querySelectorAll('.articles .item'),
@@ -48,7 +48,7 @@ const activNavList = {
       observer.observe(item);
     });
   }
-}
+};
 
 const progressBar = {
   articles: document.querySelectorAll('.articles .item'),
@@ -62,7 +62,6 @@ const progressBar = {
     let observer = new IntersectionObserver((entires, observer)=>{
       entires.forEach(entry => {
         if (entry.isIntersecting) {
-          console.log(entry.target);
           entry.boundingClientRect.top >= 0 ? fill += step : fill -= step;
           this.bar.style.width = `${fill}%`;
         }
@@ -73,7 +72,7 @@ const progressBar = {
       observer.observe(item);
     });
   }
-}
+};
 
 function runAOS() {
   AOS.init({
@@ -81,4 +80,4 @@ function runAOS() {
     delay: 0,
     duration: 400
   })
-}
+};
