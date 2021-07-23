@@ -2,7 +2,9 @@ window.onload = function() {
   openMenu.init();
   activNavList.buildList();
   activNavList.runObserver();
-  progressBar.runByHeight();
+  if (document.querySelector('.progress')) {
+    progressBar.runByHeight();
+  }
   runAOS();
 };
 
